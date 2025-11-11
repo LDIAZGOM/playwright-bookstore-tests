@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f99f050d-6b50-43f6-89d4-cba3d35fb6f4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.github/workflows/playwright-tests.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/playwright-tests.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
