@@ -1,4 +1,4 @@
-name: Playwright Tests
+name: Playwright UI Tests
 
 on:
   push:
@@ -11,19 +11,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+    - name: Checkout repository
+      uses: actions/checkout@v4
 
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '17'
 
-      - name: Install dependencies
-        run: npm install
+    - name: Cache Maven Dependencies
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.m2/repository
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2
 
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
+    - name: Install Playwright Browsers
+      run: mvn playwright:install
 
-      - name: Run tests
-        run: npx playwright test
+    - name: Run UI tests
+      run: mvn test
